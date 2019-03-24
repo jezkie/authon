@@ -1,0 +1,17 @@
+img {
+  width: 100%;
+  max-height: 250px;
+}
+
+.mat-card-image:first-child {
+  margin-top: 0;
+}
+
+mat-card-content.guest{
+  padding: 0 0 1rem 0 !important;
+}
+
+mat-card-actions:last-child {
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+}

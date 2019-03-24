@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Add Category</h2>
+<form (submit)="onSave()" [formGroup]="categorySvc.form">
+	<mat-dialog-content>
+		<mat-form-field class="full-width">
+			<input matInput formControlName="category"  placeholder="Category">
+    <mat-error>Category name is mandatory.</mat-error>
+  </mat-form-field>
+    <div class="upload-form-field">
+      <div *ngIf="categorySvc.percentage | async as pct" class="progress">
+        <mat-progress-bar [value]="pct"></mat-progress-bar>
+        {{ pct | number }}%
+      </div>
+      <input type="file" formControlName="imgFile" (change)="categorySvc.uploadImage($event.target.files)"/>
+      <p class="mat-error" *ngIf="fileEmpty && categorySvc.form.touched && categorySvc.form.dirty && !disableActions">Image file is required</p>
+      <img src="{{categorySvc.form.get('imgFile').value}}" alt="">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button type="submit" mat-raised-button color="primary" [disabled]="!categorySvc.form.valid || disableActions || fileEmpty">Save</button>
+    <button type="button" mat-raised-button color="accent" [disabled]="disableActions" (click)="onNoClick()">Cancel</button>
+  </mat-dialog-actions>
+</form>

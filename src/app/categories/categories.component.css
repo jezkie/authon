@@ -1,0 +1,30 @@
+.content {
+  display: grid;
+   grid-template-columns: 10px 1fr 10px; 
+   grid-template-rows: repeat(2, min-content) max-content;
+}
+
+.title {
+  text-align: center;
+  padding: 1rem;
+  grid-column: 1/4; 
+}
+
+.categories {
+  margin: 2rem 0 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  justify-content: center;
+  grid-gap: 15px;
+  grid-auto-rows: min-content;
+  grid-column: 2/3;
+}
+
+.categories > mat-card {
+  max-width: 200px;
+  min-height: 250px;
+  text-align: center;
+  padding: 0;
+  background-color: #ffeead;
+}
+

@@ -1,0 +1,8 @@
+<img mat-card-image src="{{category.imgUrl}}" alt="">
+<mat-card-content [ngClass]="{'guest': !isAdmin}">
+  <p>{{category.category}}</p>
+</mat-card-content>
+<mat-card-actions *ngIf="isAdmin">
+  <button mat-raised-button (click)="onEdit()" color="primary">Edit</button>
+  <button mat-raised-button (click)="onDelete()" color="accent">Delete</button>
+</mat-card-actions>

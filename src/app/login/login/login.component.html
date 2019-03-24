@@ -1,0 +1,12 @@
+<div class="login">
+  <img *ngIf="isLogin" src="{{userDetails.photoURL}}" alt="{{userDetails.displayName}}" class="avatar">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>expand_more</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <div *ngIf="isLogin" mat-menu-item>Sign in as <span class="display-name">{{userDetails.displayName}}</span></div>
+    <mat-divider *ngIf="isLogin"></mat-divider>
+    <button *ngIf="isLogin" mat-menu-item (click)="logout()">Logout</button>
+    <button *ngIf="!isLogin" mat-menu-item (click)="login()">Login with Facebook</button>
+  </mat-menu>
+</div>
